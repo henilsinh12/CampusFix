@@ -1,0 +1,7 @@
+@model ComplaintFormViewModel
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+<div class="mb-3"><label asp-for="Title" class="form-label"></label><input asp-for="Title" class="form-control" placeholder="e.g. Projector not working" /><span asp-validation-for="Title" class="text-danger small"></span></div>
+<div class="mb-3"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="4" placeholder="Describe the issue and any helpful details"></textarea><span asp-validation-for="Description" class="text-danger small"></span></div>
+<div class="row g-3"><div class="col-md-6 mb-3"><label asp-for="CategoryId" class="form-label"></label><select asp-for="CategoryId" asp-items="Model.Categories" class="form-select"><option value="0">Choose a category</option></select><span asp-validation-for="CategoryId" class="text-danger small"></span></div>
+<div class="col-md-6 mb-3"><label asp-for="Location" class="form-label"></label><input asp-for="Location" class="form-control" placeholder="e.g. Block B, Room 204" /><span asp-validation-for="Location" class="text-danger small"></span></div></div>
+<div class="mb-4"><label asp-for="Priority" class="form-label"></label><select asp-for="Priority" class="form-select"><option>Low</option><option>Normal</option><option>High</option><option>Urgent</option></select><span asp-validation-for="Priority" class="text-danger small"></span></div>

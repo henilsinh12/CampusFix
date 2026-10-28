@@ -1,0 +1,18 @@
+@model DashboardViewModel
+@{ ViewData["Title"] = "Dashboard"; }
+<div class="page-heading"><div><span class="eyebrow">OVERVIEW</span><h1>Dashboard</h1><p class="text-secondary mb-0">Here's the current pulse of your campus requests.</p></div>
+@if (User.IsInRole("Student") || User.IsInRole("Admin")) { <a class="btn btn-accent" asp-controller="Complaints" asp-action="Create">＋ New complaint</a> }</div>
+<div class="row g-3 mt-1 mb-4">
+    <div class="col-6 col-lg"><div class="metric-card"><span class="metric-label">Total complaints</span><strong>@Model.Total</strong><span class="metric-foot">In your workspace</span></div></div>
+    <div class="col-6 col-lg"><div class="metric-card"><span class="metric-label">Pending</span><strong>@Model.Pending</strong><span class="metric-foot"><span class="status-dot orange"></span> Awaiting action</span></div></div>
+    <div class="col-6 col-lg"><div class="metric-card"><span class="metric-label">In progress</span><strong>@Model.InProgress</strong><span class="metric-foot"><span class="status-dot blue"></span> Being handled</span></div></div>
+    <div class="col-6 col-lg"><div class="metric-card"><span class="metric-label">Resolved</span><strong>@Model.Resolved</strong><span class="metric-foot"><span class="status-dot green"></span> Completed</span></div></div>
+    <div class="col-6 col-lg"><div class="metric-card"><span class="metric-label">High priority</span><strong>@Model.HighPriority</strong><span class="metric-foot">Needs attention</span></div></div>
+</div>
+<div class="content-card"><div class="section-heading"><div><h4>Recent complaints</h4><p class="text-secondary mb-0">Latest updates in your workspace</p></div><a asp-controller="Complaints" asp-action="Index" class="text-link">View all →</a></div>
+@if (Model.RecentComplaints.Count == 0) { <div class="empty-inline"><div class="feature-icon purple">✓</div><h5>You're all caught up</h5><p class="text-secondary">No complaints to display yet.</p>@if (User.IsInRole("Student") || User.IsInRole("Admin")) { <a asp-controller="Complaints" asp-action="Create">Submit your first complaint</a> }</div> }
+else {
+<div class="table-responsive"><table class="table align-middle"><thead><tr><th>Complaint</th><th>Category</th><th>Priority</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>
+@foreach (var c in Model.RecentComplaints) { <tr><td><div class="fw-semibold">@c.Title</div><small class="text-secondary">@c.ReferenceNumber</small></td><td>@c.Category?.Name</td><td><span class="priority priority-@c.Priority.ToLowerInvariant()">@c.Priority</span></td><td><span class="status status-@c.Status.ToLowerInvariant().Replace(" ", "-")">@c.Status</span></td><td>@c.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</td><td><a class="icon-link" asp-controller="Complaints" asp-action="Details" asp-route-id="@c.Id">View ↗</a></td></tr> }
+</tbody></table></div>}
+</div>

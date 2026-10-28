@@ -1,0 +1,5 @@
+@model ComplaintFormViewModel
+@{ ViewData["Title"] = "New complaint"; }
+<div class="page-heading"><div><span class="eyebrow">NEW REQUEST</span><h1>Report an issue</h1><p class="text-secondary mb-0">Give your facilities team the details they need.</p></div><a asp-action="Index" class="btn btn-light">← Back to complaints</a></div>
+<div class="form-card mt-4"><div class="form-card-head"><div class="feature-icon purple">＋</div><div><h4>Complaint details</h4><p class="text-secondary mb-0">Fields marked as required must be completed.</p></div></div><form asp-action="Create" method="post">@await Html.PartialAsync("_ComplaintForm", Model)<button class="btn btn-accent btn-lg">Submit complaint →</button></form></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Campus maintenance, simplified";
+}
+<section class="hero rounded-4 p-4 p-lg-5 mb-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <span class="eyebrow">SMART CAMPUS · BETTER RESPONSE</span>
+            <h1 class="display-4 fw-bold mt-3">A better campus<br><span class="text-accent">starts with a fix.</span></h1>
+            <p class="lead text-secondary mt-3">Report campus issues, track progress, and help your facilities team keep every space working.</p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-accent btn-lg" asp-controller="Account" asp-action="Register">Report an issue <span aria-hidden="true">→</span></a>
+                <a class="btn btn-outline-dark btn-lg" asp-controller="Account" asp-action="Login">Sign in</a>
+            </div>
+            <p class="small text-secondary mt-3 mb-0">A student-friendly portal for transparent campus maintenance.</p>
+        </div>
+        <div class="col-lg-5">
+            <div class="hero-illustration">
+                <div class="float-card card-one"><span class="status-dot green"></span><div><strong>Issue resolved</strong><small>Projector · Room 204</small></div><b>✓</b></div>
+                <div class="building"><div class="building-roof"></div><div class="building-body"><div class="building-sign">CAMPUS<br><b>CARE</b></div><div class="window-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="building-door"></div></div></div>
+                <div class="float-card card-two"><span class="status-dot orange"></span><div><strong>Wi-Fi issue</strong><small>Library · In progress</small></div><span class="pill">Active</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="row g-3 mb-4">
+    <div class="col-md-4"><div class="feature-card"><div class="feature-icon purple">01</div><h5>Report in seconds</h5><p>Share the issue, location, category and priority in one simple form.</p></div></div>
+    <div class="col-md-4"><div class="feature-card"><div class="feature-icon mint">02</div><h5>Track every update</h5><p>Follow your complaint from submission to resolution with a clear status.</p></div></div>
+    <div class="col-md-4"><div class="feature-card"><div class="feature-icon peach">03</div><h5>Accountable response</h5><p>Staff and administrators coordinate work through one shared system.</p></div></div>
+</div>
+<div class="callout rounded-4 p-4 d-flex flex-wrap justify-content-between align-items-center gap-3"><div><h4 class="mb-1">Notice something that needs fixing?</h4><p class="mb-0 text-secondary">Help make your campus safer, cleaner and more connected.</p></div><a class="btn btn-dark" asp-controller="Account" asp-action="Register">Get started</a></div>

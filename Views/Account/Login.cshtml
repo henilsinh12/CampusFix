@@ -1,0 +1,11 @@
+@model LoginViewModel
+@{ ViewData["Title"] = "Log in"; }
+<div class="auth-wrap"><div class="auth-panel"><div class="feature-icon purple mb-3">↗</div><h2 class="fw-bold">Welcome back</h2><p class="text-secondary">Sign in to manage your campus requests.</p>
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+    <div class="mb-3"><label asp-for="Email" class="form-label"></label><input asp-for="Email" class="form-control" placeholder="you@college.edu" autocomplete="username" /><span asp-validation-for="Email" class="text-danger small"></span></div>
+    <div class="mb-3"><label asp-for="Password" class="form-label"></label><input asp-for="Password" class="form-control" autocomplete="current-password" /><span asp-validation-for="Password" class="text-danger small"></span></div>
+    <div class="form-check mb-3"><input asp-for="RememberMe" class="form-check-input" /><label asp-for="RememberMe" class="form-check-label">Remember me</label></div>
+    <button class="btn btn-accent w-100 btn-lg">Log in</button>
+</form><p class="text-center mt-3 mb-0 text-secondary">New to CampusFix? <a asp-action="Register">Create an account</a></p></div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
